@@ -1,12 +1,13 @@
 {
   "name": "ndx-compat",
-  "version": "0.6.0",
+  "version": "1.0.0-beta.0",
   "main": "dist/main/index.js",
   "module": "dist/module/index.js",
   "es2015": "dist/es2015/index.js",
   "typings": "dist/typings/index.d.ts",
   "description": "Backward-compatible API for a lightweight full-text searching and indexing library ndx.",
   "scripts": {
+    "prepublishOnly": "npm run clean && npm run dist",
     "clean": "rm -rf ./dist",
     "dist": "yarn dist:main && yarn dist:module && yarn dist:es2015",
     "dist:es2015": "tsc --project ./tsconfig.build.es2015.json",
@@ -30,10 +31,10 @@
     "LICENSE"
   ],
   "dependencies": {
-    "ndx": "^0.6.0",
-    "ndx-index": "^0.6.0",
-    "ndx-query": "^0.6.0",
-    "ndx-utils": "^0.6.0"
+    "ndx": "^1.0.0-beta.1",
+    "ndx-index": "^1.0.0-beta.0",
+    "ndx-query": "^1.0.0-beta.0",
+    "ndx-utils": "^1.0.0-beta.0"
   },
   "devDependencies": {
     "@types/jest": "^23.3.12",
@@ -41,6 +42,7 @@
     "codecov": "^3.1.0",
     "husky": "^1.3.1",
     "jest": "^23.6.0",
+    "ndx-dev-commons": "^1.0.0-beta.0",
     "ts-jest": "^23.10.5",
     "ts-node": "^7.0.1",
     "tslib": "^1.9.3",
