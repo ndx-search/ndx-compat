@@ -1,6 +1,6 @@
-# [ndx](https://github.com/ndx-compat/ndx-index) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ndx-compat/ndx-index/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/ndx-index.svg)](https://www.npmjs.com/package/ndx-index) [![codecov](https://codecov.io/gh/ndx-compat/ndx-index/branch/master/graph/badge.svg)](https://codecov.io/gh/ndx-compat/ndx-index) [![CircleCI Status](https://circleci.com/gh/ndx-compat/ndx-index.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/ndx-compat/ndx-index) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ndx-compat/ndx-index)
+# [ndx](https://github.com/ndx-search/ndx-compat) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ndx-search/ndx-compat/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/ndx-compat.svg)](https://www.npmjs.com/package/ndx-compat) [![codecov](https://codecov.io/gh/ndx-search/ndx-compat/branch/master/graph/badge.svg)](https://codecov.io/gh/ndx-search/ndx-compat) [![CircleCI Status](https://circleci.com/gh/ndx-search/ndx-compat.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/ndx-search/ndx-compat) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ndx-search/ndx-compat)
 
-Backward-compatible API for [ndx](https://github.com/ndx-search/ndx) `< 0.6.0`.
+Backward-compatible API for [ndx](https://github.com/ndx-search/ndx) `< 1.0.0`.
 
 ## Documentation
 
