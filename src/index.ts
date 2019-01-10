@@ -1,4 +1,4 @@
-import { Index, createDocumentIndex } from "ndx";
+import { Index, createIndex } from "ndx";
 import { trimNonWordCharactersFilter, lowerCaseFilter, whitespaceTokenizer } from "ndx-utils";
 import { vacuumIndex, removeDocumentFromIndex, addDocumentToIndex } from "ndx-index";
 import { QueryResult, expandTerm, query } from "ndx-query";
@@ -79,7 +79,7 @@ export class DocumentIndex<I, D> {
   private readonly _bm25b: number;
 
   constructor(options?: DocumentIndexOptions) {
-    this._index = createDocumentIndex(0);
+    this._index = createIndex(0);
     this._removed = new Set<I>();
     this._fieldsBoost = [];
     this._fieldsAccessors = [];
