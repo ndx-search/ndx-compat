@@ -1,7 +1,42 @@
 import { Index, createIndex } from "ndx";
-import { trimNonWordCharactersFilter, lowerCaseFilter, whitespaceTokenizer } from "ndx-utils";
 import { vacuumIndex, removeDocumentFromIndex, addDocumentToIndex } from "ndx-index";
 import { QueryResult, expandTerm, query } from "ndx-query";
+
+const WS_TOKENIZER_RE = /[\s]+/;
+
+/**
+ * The whitespace tokenizer breaks on whitespace - spaces, tabs, line feeds and assumes that contiguous nonwhitespace
+ * characters form a single token.
+ *
+ * @param s Input string.
+ * @returns Array of tokens.
+ */
+export function whitespaceTokenizer(s: string): string[] {
+  return s.trim().split(WS_TOKENIZER_RE);
+}
+
+/**
+ * Converts term to lower case.
+ *
+ * @param term Term.
+ * @returns Filtered term.
+ */
+export function lowerCaseFilter(term: string): string {
+  return term.toLowerCase();
+}
+
+const NW_FILTER_START_RE = /^\W+/;
+const NW_FILTER_END_RE = /\W+$/;
+
+/**
+ * Removes all non-word characters at the start and at the end of the term.
+ *
+ * @param term Term.
+ * @returns Filtered term.
+ */
+export function trimNonWordCharactersFilter(term: string): string {
+  return term.replace(NW_FILTER_START_RE, "").replace(NW_FILTER_END_RE, "");
+}
 
 export type SearchResult<I> = QueryResult<I>;
 
