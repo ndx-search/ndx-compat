@@ -1,6 +1,5 @@
-import { Index, createIndex } from "ndx";
-import { vacuumIndex, removeDocumentFromIndex, addDocumentToIndex } from "ndx-index";
-import { QueryResult, expandTerm, query } from "ndx-query";
+import { Index, createIndex, vacuumIndex, removeDocumentFromIndex, addDocumentToIndex } from "ndx";
+import { expandTerm, query } from "ndx-query";
 
 const WS_TOKENIZER_RE = /[\s]+/;
 
@@ -38,7 +37,21 @@ export function trimNonWordCharactersFilter(term: string): string {
   return term.replace(NW_FILTER_START_RE, "").replace(NW_FILTER_END_RE, "");
 }
 
-export type SearchResult<I> = QueryResult<I>;
+/**
+ * Search Result.
+ *
+ * @typeparam I Document id.
+ */
+export interface SearchResult<I> {
+  /**
+   * Document key.
+   */
+  readonly docId: I;
+  /**
+   * Result score.
+   */
+  readonly score: number;
+}
 
 /**
  * BM25 Ranking function constants.
@@ -146,7 +159,7 @@ export class DocumentIndex<I, D> {
    * Returns number of indexed document.
    */
   get size(): number {
-    return this._index.documents.size;
+    return this._index.docs.size;
   }
 
   /**
@@ -202,7 +215,7 @@ export class DocumentIndex<I, D> {
       this._filter,
       this._removed,
       s,
-    );
+    ).map(({ key, score }) => ({ docId: key, score }));
   }
 
   /**
